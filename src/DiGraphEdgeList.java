@@ -69,7 +69,7 @@ public class DiGraphEdgeList implements DiGraphADT
     /** true if there is an edge from node1 to node2
     @param node1 source node
     @param node2 destination node
-    @return returns true iff there is an edge from node1 to node2
+    @return returns true if there is an edge from node1 to node2
     */
     public boolean isEdge(int node1, int node2) 
     {

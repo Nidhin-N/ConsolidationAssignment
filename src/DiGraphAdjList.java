@@ -1,14 +1,14 @@
-import java.util.*;
+/**import java.util.*;
 
 public class DiGraphAdjList implements DiGraphADT{
     private int numNodes;
     private LinkedList<Integer> adjList[];
 
-    public void DiGraphAdjMatrix(int n){
+    public DiGraphAdjList(int n){
         numNodes = n;
         adjList = new LinkedList[n];
-        for (int i = 0; i < n; n++){
-            adjList[i] = new LinkedList<>();
+        for (int i = 0; i < n; i++){
+            adjList[i] = new
         }
     }
 
@@ -17,15 +17,15 @@ public class DiGraphAdjList implements DiGraphADT{
     }
 
     public int nEdges() {
-        return 0;
+        return adjList.size();
     }
 
     public boolean addEdge(int node1, int node2) {
         if (isEdge(node1, node2))
             return false;
-        adjList[node1].addFirst(node2);
-        adjList[node2].addFirst(node1);
-        return true;
+        adj node = new a (node1, node2);
+        node = adjList[node1].head;
+        adjList[node1].head = node;
     }
 
     public boolean isEdge(int node1, int node2) {
@@ -47,4 +47,5 @@ public class DiGraphAdjList implements DiGraphADT{
     public int inDegree(int node) {
         return 0;
     }
-}
+
+}**/

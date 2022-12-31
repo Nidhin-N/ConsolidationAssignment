@@ -25,7 +25,8 @@ public class TestDriver
         boolean added;
         System.out.println("Graph has "+g.nNodes()+
         " nodes and " + g.nEdges()+" edges");
-        added = g.addEdge(3,0);
+
+        /**added = g.addEdge(3,0);
         if (added)
             System.out.println("Edge 3,0 added successfully");
         else
@@ -57,6 +58,7 @@ public class TestDriver
         + g.inDegree(4));
         System.out.println("The predecessors of node 4 are "
         + g.predecessors(4));
+        System.out.println("");**/
     }
     
     public static void main(String[] args)

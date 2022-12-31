@@ -61,5 +61,6 @@ public interface DiGraphADT
     @return returns the inDegree of the given node
     */
     int inDegree(int node);
+
 }
 
