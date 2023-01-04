@@ -1,15 +1,23 @@
-/**import java.util.*;
+
+import java.util.*;
 
 public class DiGraphAdjList implements DiGraphADT{
     private int numNodes;
-    private LinkedList<Integer> adjList[];
+    ArrayList<Node>adjList;
+    class Node{
+        int node1, node2;
+        ArrayList<Node> neighbours;
+
+        Node(int node1, int node2){
+            this.node1 = node1;
+            this.node2 = node2;
+            this.neighbours = new ArrayList<>();
+        }
+    }
 
     public DiGraphAdjList(int n){
         numNodes = n;
-        adjList = new LinkedList[n];
-        for (int i = 0; i < n; i++){
-            adjList[i] = new
-        }
+        adjList = new ArrayList<Node>();
     }
 
     public int nNodes() {
@@ -23,13 +31,22 @@ public class DiGraphAdjList implements DiGraphADT{
     public boolean addEdge(int node1, int node2) {
         if (isEdge(node1, node2))
             return false;
-        adj node = new a (node1, node2);
-        node = adjList[node1].head;
-        adjList[node1].head = node;
+        Node node = new Node(node1, node2);
+        adjList.add(node);
+        return true;
     }
 
     public boolean isEdge(int node1, int node2) {
-        return false;
+        int i = 0;
+        boolean found = false;
+        while (!found && i<nEdges())
+        {
+            if ((adjList.get(i).node1 == node1) && (adjList.get(i).node2 == node2))
+                found = true;
+            else
+                i++;
+        }
+        return found;
     }
 
     public ArrayList<Integer> successors(int node) {
@@ -48,4 +65,4 @@ public class DiGraphAdjList implements DiGraphADT{
         return 0;
     }
 
-}**/
+}

@@ -18,7 +18,7 @@ public class TestDriver
         n = 5;
 //the line below is the one to edit to create an instance
 //of the appropriate implementation of the DiGraphADT
-        g = new DiGraphAdjMatrix(n);
+        g = new DiGraphAdjList(n);
     }
 
    public void tests() {
@@ -26,7 +26,7 @@ public class TestDriver
         System.out.println("Graph has "+g.nNodes()+
         " nodes and " + g.nEdges()+" edges");
 
-        /**added = g.addEdge(3,0);
+        added = g.addEdge(3,0);
         if (added)
             System.out.println("Edge 3,0 added successfully");
         else
@@ -49,7 +49,7 @@ public class TestDriver
         if (g.isEdge(3,4))
             System.out.println("Edge 3,4 is present");
         else
-            System.out.println("Edge 3,4 is not present");
+            System.out.println("Edge 3,4 is not present");/**
         System.out.println("The outdegree of node 4 is "
         + g.outDegree(4));
         System.out.println("The successors of node 4 are "
