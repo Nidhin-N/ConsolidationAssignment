@@ -23,12 +23,12 @@ public class TraversalApp {
             int option = choice.nextInt();
             switch(option){
                 case 1: //breadth-first
-                    System.out.println("Enter: ");
+                    System.out.println("Enter starting node: ");
                     int BFstart = choice.nextInt();
                     BF(BFstart);
                     break;
                 case 2: //depth-first
-                    System.out.println("Enter: ");
+                    System.out.println("Enter starting node: ");
                     int DFstart = choice.nextInt();
                     DF(DFstart);
                     break;

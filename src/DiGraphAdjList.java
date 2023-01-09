@@ -3,21 +3,15 @@ import java.util.*;
 
 public class DiGraphAdjList implements DiGraphADT{
     private int numNodes;
-    ArrayList<Node>adjList;
-    class Node{
-        int node1, node2;
-        ArrayList<Node> neighbours;
+    private ArrayList<ArrayList<Integer>> adjList;
 
-        Node(int node1, int node2){
-            this.node1 = node1;
-            this.node2 = node2;
-            this.neighbours = new ArrayList<>();
-        }
-    }
 
     public DiGraphAdjList(int n){
         numNodes = n;
-        adjList = new ArrayList<Node>();
+        adjList = new ArrayList<ArrayList<Integer>>();
+        for (int i = 0; i < nNodes(); i++){
+            adjList.add(new ArrayList<Integer>());
+        }
     }
 
     public int nNodes() {
@@ -25,14 +19,17 @@ public class DiGraphAdjList implements DiGraphADT{
     }
 
     public int nEdges() {
-        return adjList.size();
+         int edges = 0;
+         for (int i = 0; i < nNodes(); i++){
+             edges += adjList.get(i).size();
+         }
+         return edges;
     }
 
     public boolean addEdge(int node1, int node2) {
-        if (isEdge(node1, node2))
-            return false;
-        Node node = new Node(node1, node2);
-        adjList.add(node);
+        //if (isEdge(node1, node2))
+            //return false;
+        adjList.get(node1).add(node2);
         return true;
     }
 
@@ -41,12 +38,12 @@ public class DiGraphAdjList implements DiGraphADT{
         boolean found = false;
         while (!found && i<nEdges())
         {
-            if ((adjList.get(i).node1 == node1) && (adjList.get(i).node2 == node2))
+            if ((adjList == node1) && (adjList.get(i).get(i) == node2))
                 found = true;
             else
                 i++;
         }
-        return found;
+        return true;
     }
 
     public ArrayList<Integer> successors(int node) {

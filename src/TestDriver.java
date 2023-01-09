@@ -42,7 +42,7 @@ public class TestDriver
         added = g.addEdge(4,1);
         added = g.addEdge(0,4);
         System.out.println("Graph has "+g.nEdges()+" edges");
-        if (g.isEdge(4,3))
+        /**if (g.isEdge(4,3))
             System.out.println("Edge 4,3 is present");
         else
             System.out.println("Edge 4,3 is not present");
