@@ -42,14 +42,14 @@ public class TestDriver
         added = g.addEdge(4,1);
         added = g.addEdge(0,4);
         System.out.println("Graph has "+g.nEdges()+" edges");
-        /**if (g.isEdge(4,3))
+        if (g.isEdge(4,3))
             System.out.println("Edge 4,3 is present");
         else
             System.out.println("Edge 4,3 is not present");
         if (g.isEdge(3,4))
             System.out.println("Edge 3,4 is present");
         else
-            System.out.println("Edge 3,4 is not present");/**
+            System.out.println("Edge 3,4 is not present");
         System.out.println("The outdegree of node 4 is "
         + g.outDegree(4));
         System.out.println("The successors of node 4 are "
@@ -58,7 +58,7 @@ public class TestDriver
         + g.inDegree(4));
         System.out.println("The predecessors of node 4 are "
         + g.predecessors(4));
-        System.out.println("");**/
+        System.out.println("");
     }
     
     public static void main(String[] args)

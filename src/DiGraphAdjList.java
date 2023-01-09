@@ -1,4 +1,3 @@
-
 import java.util.*;
 
 public class DiGraphAdjList implements DiGraphADT{
@@ -19,16 +18,16 @@ public class DiGraphAdjList implements DiGraphADT{
     }
 
     public int nEdges() {
-         int edges = 0;
-         for (int i = 0; i < nNodes(); i++){
-             edges += adjList.get(i).size();
-         }
-         return edges;
+        int edges = 0;
+        for (int i = 0; i < nNodes(); i++){
+            edges += adjList.get(i).size();
+        }
+        return edges;
     }
 
     public boolean addEdge(int node1, int node2) {
-        //if (isEdge(node1, node2))
-            //return false;
+        if (isEdge(node1, node2))
+            return false;
         adjList.get(node1).add(node2);
         return true;
     }
@@ -36,30 +35,38 @@ public class DiGraphAdjList implements DiGraphADT{
     public boolean isEdge(int node1, int node2) {
         int i = 0;
         boolean found = false;
-        while (!found && i<nEdges())
-        {
-            if ((adjList == node1) && (adjList.get(i).get(i) == node2))
-                found = true;
-            else
-                i++;
+        while (!found && i<nEdges()){
+                if ((adjList.get(node1) != null) && (adjList.get(node1).contains(node2)))
+                    found = true;
+                else
+                    i++;
         }
-        return true;
+        return found;
     }
 
     public ArrayList<Integer> successors(int node) {
-        return null;
+        ArrayList<Integer> successorNodes = new ArrayList<Integer>();
+        if (adjList.get(node) != null)
+            for (int i = 0; i < adjList.get(node).size(); i++){
+                successorNodes.add(adjList.get(node).get(i));
+            }
+        return successorNodes;
     }
 
     public ArrayList<Integer> predecessors(int node) {
-        return null;
+        ArrayList<Integer> predecessorNodes = new ArrayList<Integer>();
+        for (int i=0; i<nNodes(); i++)
+            if (adjList.get(i).contains(node))
+                predecessorNodes.add(i);
+        return predecessorNodes;
     }
 
     public int outDegree(int node) {
-        return 0;
+        return adjList.get(node).size();
     }
 
     public int inDegree(int node) {
-        return 0;
+        return predecessors(node).size();
     }
 
 }
