@@ -18,7 +18,7 @@ public class TestDriver3
         n = 5;
 //the line below is the one to edit to create an instance
 //of the appropriate implementation of the DiGraphADT
-        g = new GraphAdjMatrix(n);
+        g = new GraphAdjList(n);
     }
 
     public void tests() {
