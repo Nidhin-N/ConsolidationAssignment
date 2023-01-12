@@ -65,7 +65,7 @@ public class TraversalApp {
         Queue<Integer> queue = new LinkedList<>();
         reached[node] = true;
         queue.add(node);
-        System.out.println("Node's degree is: " + g.degree(node));
+        System.out.println("Current node's degree is: " + g.degree(node));
         avgDegree += g.degree(node);
 
         while (queue.size() != 0){
@@ -74,7 +74,7 @@ public class TraversalApp {
             for (int i = 0; i < current.size(); i++){
                 if (!reached[current.get(i)]){
                     reached[current.get(i)] = true;
-                    System.out.println("Node's number is: "+ current.get(i) + " & node's degree is: " + g.degree(current.get(i)));
+                    System.out.println("Current node's number is: "+ current.get(i) + " & current node's degree is: " + g.degree(current.get(i)));
                     avgDegree += g.degree(current.get(i));
                     queue.add(current.get(i));
                 }
@@ -83,13 +83,22 @@ public class TraversalApp {
         System.out.println("\nAverage node degree is: " + avgDegree/g.nNodes() + "\n");
     }
 
+
     public static void DF(GraphAdjList g, int node) {
         double avgDegree = 0.0;
         boolean[] reached = new boolean[g.nNodes()];
         reached[node] = true;
+        System.out.println("Current node's number is: "+ node + " & current node's degree is: " + g.degree(node));
+        avgDegree += g.degree(node);
 
+        ArrayList<Integer> current = g.neighbours(node);
+        for (int i = 0; i < current.size(); i++){
+            if (!reached[current.get(i)]){
+                DF(g, current.get(i));
+            }
+        }
 
-        //System.out.println("Average node degree is: " + avgDegree/g.nNodes());
+        System.out.println("Average node degree is: " + avgDegree/g.nNodes());
     }
 
 }
