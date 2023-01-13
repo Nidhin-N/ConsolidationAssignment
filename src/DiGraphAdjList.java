@@ -28,6 +28,9 @@ public class DiGraphAdjList implements DiGraphADT{
     public boolean addEdge(int node1, int node2) {
         if (isEdge(node1, node2))
             return false;
+        else if (node1 == node2) {
+            return false;
+        }
         adjList.get(node1).add(node2);
         return true;
     }
@@ -38,7 +41,9 @@ public class DiGraphAdjList implements DiGraphADT{
         while (!found && i<nEdges()){
                 if ((adjList.get(node1) != null) && (adjList.get(node1).contains(node2)))
                     found = true;
-                else
+                else if (adjList.get(node1) == adjList.get(node2)) {
+                    found = true;
+                } else
                     i++;
         }
         return found;

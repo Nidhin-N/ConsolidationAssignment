@@ -27,6 +27,9 @@ public class DiGraphAdjMatrix implements DiGraphADT {
     public boolean addEdge(int node1, int node2) {
         if (isEdge(node1, node2))
             return false;
+        else if (node1 == node2) {
+            return false;
+        }
         adjMatrix[node1][node2] = 1;
         return true;
     }

@@ -27,6 +27,9 @@ public class GraphAdjList implements GraphADT{
     public boolean addEdge(int node1, int node2) {
         if (isEdge(node1, node2))
             return false;
+        else if (node1 == node2) {
+            return false;
+        }
         adjList.get(node1).add(node2);
         adjList.get(node2).add(node1);
         return true;
@@ -36,9 +39,9 @@ public class GraphAdjList implements GraphADT{
         int i = 0;
         boolean found = false;
         while (!found && i<nEdges()){
-            if ((adjList.get(node1) != null) && (adjList.get(node1).contains(node2)))
+            if ((adjList.get(node1) != null) && (adjList.get(node1).contains(node2))){
                 found = true;
-            else
+            } else
                 i++;
         }
         return found;

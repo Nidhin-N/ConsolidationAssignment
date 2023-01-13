@@ -28,7 +28,7 @@ public class TraversalApp {
                 g.addEdge(node1, node2);
             }
         } catch (IOException e) {
-            System.out.println("File not found");
+            System.out.println("File not foun d");
         }
         Scanner choice = new Scanner(System.in);
         while (quit != true) {
@@ -47,7 +47,6 @@ public class TraversalApp {
                     System.out.println("Enter starting node: ");
                     int DFstart = choice.nextInt();
                     DF(g, DFstart);
-                    System.out.println("Average node degree is: ");
                     break;
                 case 3:
                     quit = true;
@@ -87,18 +86,25 @@ public class TraversalApp {
     public static void DF(GraphAdjList g, int node) {
         double avgDegree = 0.0;
         boolean[] reached = new boolean[g.nNodes()];
+        Stack<Integer> stack = new Stack<>();
         reached[node] = true;
-        System.out.println("Current node's number is: "+ node + " & current node's degree is: " + g.degree(node));
+        stack.push(node);
+        System.out.println("Current node's degree is: " + g.degree(node));
         avgDegree += g.degree(node);
 
-        ArrayList<Integer> current = g.neighbours(node);
-        for (int i = 0; i < current.size(); i++){
-            if (!reached[current.get(i)]){
-                DF(g, current.get(i));
+        while (stack.size() != 0){
+            node = stack.pop();
+            ArrayList<Integer> current = g.neighbours(node);
+            for (int i = 0; i < current.size(); i++){
+                if (!reached[current.get(i)]){
+                    reached[current.get(i)] = true;
+                    System.out.println("Current node's number is: "+ current.get(i) + " & current node's degree is: " + g.degree(current.get(i)));
+                    avgDegree += g.degree(current.get(i));
+                    stack.push(current.get(i));
+                }
             }
         }
-
-        System.out.println("Average node degree is: " + avgDegree/g.nNodes());
+        System.out.println("\nAverage node degree is: " + avgDegree/g.nNodes() + "\n");
     }
 
 }
